@@ -9,7 +9,7 @@ struct S
 int main()
 {
     const int NUM_ELEMS = 10;
-    S* myStructs = cast(S*) malloc(NUM_ELEMS * S.sizeof);
+    S* myStructs = malloc(NUM_ELEMS * S.sizeof);
     int i = 0;
 
     for (i = 0; i < NUM_ELEMS; ++i)

@@ -53,24 +53,6 @@ private:
     Car** cars;
 };
 
-
-enum class CarType
-{
-    Sedan,
-    Hatchback
-};
-
-void makeCar(Dealership& dealership, CarType carType, int carId)
-{
-    Car car;
-    if (carType == CarType::Sedan) {
-        car = Sedan(carId);
-    } else if (carType == CarType::Hatchback) {
-        car = Hatchback(carId);
-    }
-    dealership.receiveCar(&car);
-}
-
 int main(void)
 {
     const int numCars = 10;
@@ -78,7 +60,6 @@ int main(void)
 
     for (int i = 0; i < numCars; ++i)
     {
-        //makeCar(dealership, i % 2 == 0 ? CarType::Sedan : CarType::Hatchback, i);
         Car car;
         if (i % 2 == 0) {
             car = Sedan(i);

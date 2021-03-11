@@ -9,7 +9,7 @@ int main()
 {
     int a = 5;
     int[10] b;
-    //b[11] = 9;
+    b[-1] = 9;
     foo(b);
 
     writefln("a has val %d\n", a);

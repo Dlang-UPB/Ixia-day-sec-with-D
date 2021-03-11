@@ -9,7 +9,7 @@ int main()
 {
     int a = 5;
     int b[10];
-    //b[-1] = 9;
+    b[-1] = 9;
     foo(b);
 
     printf("a has val %d\n", a);

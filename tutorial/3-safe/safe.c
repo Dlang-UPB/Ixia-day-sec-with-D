@@ -9,7 +9,7 @@ typedef struct
 int main()
 {
     const int NUM_ELEMS = 10;
-    S* myStructs = (S*) malloc(NUM_ELEMS * sizeof(S));
+    S* myStructs = malloc(NUM_ELEMS * sizeof(S));
     int i = 0;
 
     for (i = 0; i < NUM_ELEMS; ++i)
