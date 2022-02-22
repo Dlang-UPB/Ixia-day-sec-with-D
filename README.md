@@ -1,2 +1,2 @@
-# Ixia-day-2021-sec-with-D
+# Ixia-day-sec-with-D
 Examples of C/C++ vulnerabilities and D solutions
