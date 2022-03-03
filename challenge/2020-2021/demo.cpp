@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 class Car
 {
@@ -29,38 +28,29 @@ public:
     Dealership(int parkingLot) {
         curr = 0;
         numCars = parkingLot;
-        cars = std::vector<Car*>();
+        cars = new Car*[numCars];
     }
 
     void receiveCar(Car* car) {
-        cars.push_back(car);
-        curr++;
+        cars[curr++] = car;
     }
 
-    Car* sellCar(int i) {
-        Car* car = cars[i];
-        cars.erase(cars.begin() + i);
+    Car* sellCar() {
+        Car* car = cars[curr];
+        cars[curr] = nullptr;
         curr--;
 
         return car;
     }
 
-    int testDrive(int idx) {
+    void testDrive(int idx) {
         std::cout << "Testing car" << cars[idx]->id << "\n";
-        // if user is happy -> he will buy the car
-        if (idx % 3 == 0)
-            return 1;
-        return 0;
-    }
-
-    std::vector<Car*> viewLot() {
-        return cars;
     }
 
 private:
     int numCars;
     int curr;
-    std::vector<Car*> cars;
+    Car** cars;
 };
 
 int main(void)
@@ -79,14 +69,8 @@ int main(void)
         dealership.receiveCar(&car);
     }
 
-    size_t i = 0;
-    auto dealerLot = dealership.viewLot();
-    for (auto it = dealerLot.begin(); it != dealerLot.end(); it++) {
-        if (dealership.testDrive(i)) {
-            dealership.sellCar(i);
-        }
-        i++;
-    }
+    for (int i = 0; i < numCars; ++i)
+        dealership.testDrive(i);
 
     return 0;
 }
